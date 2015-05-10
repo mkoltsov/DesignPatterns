@@ -4,7 +4,7 @@ It's a repo to practice writing various software design patterns
 ## 1. Creational patterns 
 ##### - Singleton - Ensures one and only one object is created.
 #####	- Builder -  Encapsulates the creation of an object (let’s call it a builder), and have our client ask the builder to construct the structure for it.  
-#####	- Prototype
+#####	- Prototype - Creates a prototypical instance, which is cloned to produce new objects.
 #####	- Abstract Factory - Allows a client to create families of objects without specifying their concrete classes.
 #####	- Factory Method - Subclasses decide which concrete classes to create.
 

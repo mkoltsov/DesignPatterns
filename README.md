@@ -14,7 +14,7 @@ It's a repo to practice writing various software design patterns
 #####	- Mediator - Communication between objects is encapsulated with a mediator object. Objects no longer communicate directly with each other, but instead communicate through the mediator. This reduces the dependencies between communicating objects, thereby lowering the coupling.
 #####	- Iterator - Provides a way to traverse a collection of objects without exposing its implementation.
 #####	- Command - Encapsulates a request as an object.
-#####	- Memento
+#####	- Memento - Provides the ability to restore an object to its previous state (undo via rollback)
 #####	- Observer - Allows objects to be notified when state changes.
 #####	- Interpeter -  Defines a class-based representation for its grammar along with an  interpreter to interpret its sentences. To represent the language, you use a class to represent each rule in the language. 
 #####	- Chain of Responsibility - Creates a chain of objects to examine requests. Each object in turn examines a request and either handles it, or passes it on to the next object in the chain.

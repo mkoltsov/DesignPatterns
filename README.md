@@ -11,7 +11,7 @@ It's a repo to practice writing various software design patterns
 ## 2. Behavioral patterns
 #####	- Template method - Subclasses decide which concrete classes to create.
 #####	- Visitor
-#####	- Mediator
+#####	- Mediator - Communication between objects is encapsulated with a mediator object. Objects no longer communicate directly with each other, but instead communicate through the mediator. This reduces the dependencies between communicating objects, thereby lowering the coupling.
 #####	- Iterator - Provides a way to traverse a collection of objects without exposing its implementation.
 #####	- Command - Encapsulates a request as an object.
 #####	- Memento

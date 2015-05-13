@@ -16,7 +16,7 @@ It's a repo to practice writing various software design patterns
 #####	- Command - Encapsulates a request as an object.
 #####	- Memento
 #####	- Observer - Allows objects to be notified when state changes.
-#####	- Interpeter
+#####	- Interpeter -  Defines a class-based representation for its grammar along with an  interpreter to interpret its sentences. To represent the language, you use a class to represent each rule in the language. 
 #####	- Chain of Responsibility - Creates a chain of objects to examine requests. Each object in turn examines a request and either handles it, or passes it on to the next object in the chain.
 #####	- State - Encapsulates state-based behaviors and uses delegation to switch between behaviors.
 #####	- Strategy - Encapsulates interchangeable behaviors and uses delegation to decide which one to use.

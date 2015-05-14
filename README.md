@@ -27,7 +27,7 @@ It's a repo to practice writing various software design patterns
 #####	- Proxy - Wraps an object to control access to it.
 #####	- Facade - Simplifies the interface of a set of classes.
 #####	- Bridge - 	The Bridge Pattern allows you to vary the implementation and the abstraction by placing the two in separate class hierarchies.
-#####	- Flyweight
+#####	- Flyweight - A flyweight is an object that minimizes memory use by sharing as much data as possible with other similar objects; it is a way to use objects in large numbers when a simple repeated representation would use an unacceptable amount of memory.
 #####	- Adapter - Wraps an object and provides a different interface to it.
 ---------------------------
 ## 4. Class patterns

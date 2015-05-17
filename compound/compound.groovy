@@ -1,21 +1,59 @@
 import groovy.transform.Canonical
-interface Quackable {
+
+interface Quackable  extends QuackObservable {
 	def void quack()
 }
 
 class MallardDuck implements Quackable {
-	def void quack(){println('Quack!')}
+	Observable observable
+	MallardDuck(){
+		this.observable = observable
+	}
+
+	def void registerObserver(Observer observer) {
+		observable.registerObserver(observer)
+	}
+
+	def void notifyObservers() {
+		observable.notifyObservers()
+	}
+
+	def void quack(){
+		println('Quack!')
+		observable.notifyObservers()
+	}
 }
 
 class RedHeadDuck implements Quackable {
+	def void registerObserver(Observer observer) {
+		observable.registerObserver(observer)
+	}
+
+	def void notifyObservers() {
+		observable.notifyObservers()
+	}
 	def void quack(){println('Quack!')}
 }
 
 class RubberDuck implements Quackable {
+	def void registerObserver(Observer observer) {
+		observable.registerObserver(observer)
+	}
+
+	def void notifyObservers() {
+		observable.notifyObservers()
+	}
 	def void quack(){println('Squeak')}
 }
 
 class DuckCall implements Quackable {
+	def void registerObserver(Observer observer) {
+		observable.registerObserver(observer)
+	}
+
+	def void notifyObservers() {
+		observable.notifyObservers()
+	}
 	def void quack(){println('Kwak')}
 }
 
@@ -73,6 +111,38 @@ class Flock implements Quackable {
 	}
 }
 
+interface QuackObservable {
+	def void registerObserver(Observer observer)
+	def void notifyObservers()
+}
+
+interface Observer {
+	def void update(QuackObservable duck)
+}
+
+class Quackologist implements Observer {
+	def void update(QuackObservable duck) {
+		println("duck = ${duck} just quacked")
+	}
+}
+
+class Observable implements QuackObservable {
+	def observers = []
+	def duck
+	Observable(QuackObservable quack) {
+		this.duck = quack
+	}
+
+	def void registerObserver(Observer observer) {
+		observers.add(observer)
+	}
+
+	def void notifyObservers() {
+		observers.each { _ -> _.update(duck)}
+	}
+
+
+}
 void simulate(AbstractDuckFactory countFactory){
 	
 	def mDuck = countFactory.createMallardDuck()

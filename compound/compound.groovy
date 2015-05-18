@@ -61,18 +61,41 @@ class CountingDuckFactory implements AbstractDuckFactory {
 	def Quackable createDuckCall(){return new QuackCounter( new DuckCall())}
 }
 
+class Flock implements Quackable {
+	def flock = []
+
+	def addQuackable(Quackable quackable){
+		flock.add(quackable)
+	}
+
+	def void quack() {
+		flock.each{_->_.quack()}
+	}
+}
 
 void simulate(AbstractDuckFactory countFactory){
+	
 	def mDuck = countFactory.createMallardDuck()
 	def rDuck = countFactory.createRedheadDuck()
 	def rbDuck = countFactory.createRubberDuck()
 	def dcDuck = countFactory.createDuckCall()
 	def goose = new Goose()
+	
+	def flockOfDucks = new Flock()
+	flockOfDucks.addQuackable(mDuck)
+	flockOfDucks.addQuackable(rDuck)
+	flockOfDucks.addQuackable(rbDuck)
+	flockOfDucks.addQuackable(dcDuck)
 
-	simulate(mDuck)
-	simulate(rDuck)
-	simulate(rbDuck)
-	simulate(dcDuck)
+	def flockOfMallardDucks = new Flock()
+
+	flockOfMallardDucks.addQuackable(countFactory.createMallardDuck())
+	flockOfMallardDucks.addQuackable(countFactory.createMallardDuck())
+	flockOfMallardDucks.addQuackable(countFactory.createMallardDuck())
+	flockOfMallardDucks.addQuackable(countFactory.createMallardDuck())
+
+	simulate(flockOfDucks)
+	simulate(flockOfMallardDucks)
 	simulate(new GooseAdapter(goose))
 
 	println("number of ducks quacked is ${QuackCounter.quackCounter}")

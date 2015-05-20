@@ -18,7 +18,7 @@ class PersonBeanImpl implements PersonBean {
 	def String interests
 	int hotOrNotRating
 
-	def getHotOrNotRating(){
+	def getHotOrNotRating() {
 
 	}
 

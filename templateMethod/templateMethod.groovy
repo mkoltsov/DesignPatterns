@@ -8,11 +8,11 @@ abstract class Beverage {
 	
 	def abstract addCondiments()
 	
-	def addMilk(){
+	def addMilk() {
 		println('Adding milk')
 	}
 	
-	def boiling(){
+	def boiling() {
 		println('Boiling the water')
 	}	
 }

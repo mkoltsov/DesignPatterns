@@ -9,7 +9,7 @@ class MyFrame extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
 	}
 
-	def void paint(Graphics graphics){
+	def void paint(Graphics graphics) {
 		super.paint(graphics)
 		graphics.drawString("i rule", 100, 100)
 	}

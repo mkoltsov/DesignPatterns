@@ -1,5 +1,4 @@
-import groovy.transform.Immutable
-
+import groovy.transform.Canonical
 interface State {
     def insertQuarter()
 
@@ -10,27 +9,28 @@ interface State {
     def dispense()
 
 }
-
+@Canonical
 class NoQuarter implements State {
-
+    def GumballMachine gumballMachine
     @Override
     def insertQuarter() {
-        return null
+        println("You inserted a quarter")
+  gumballMachine.setState(gumballMachine.HasQuarterState())
     }
 
     @Override
     def ejectQuarter() {
-        return null
+        println("You haven't inserted a quarter")
     }
 
     @Override
     def turnCrank() {
-        return null
+        println("You turned, but there's no quarter")
     }
 
     @Override
     def dispense() {
-        return null
+        println("Need to play first")
     }
 }
 
@@ -47,7 +47,8 @@ class GumballMachine {
 
     GumballMachine(int numberGumballs) {
         this.soldOutState = new SoldOutState(this)
-        this.hasQuarterState = new HasQuarterState(this)
+        this.hasQuarterState = new HasQuarterState(random:new Random(System.currentTimeMillis()),
+  gumballMachine:this)
         this.noQuarterState = new NoQuarterState(this)
         this.soldState = new SoldState(this)
         this.winnerState = new WinnerState(this)
@@ -85,7 +86,7 @@ class GumballMachine {
     }
 }
 
-@Immutable
+@Canonical
 class SoldOutState implements State {
     def GumballMachine gumballMachine
 
@@ -110,9 +111,9 @@ class SoldOutState implements State {
     }
 }
 
-@Immutable
+@Canonical
 class HasQuarterState implements State {
-    def Random random = new Random(System.currentTimeMillis())
+    def Random random
     def GumballMachine gumballMachine
 
     @Override
@@ -143,7 +144,7 @@ class HasQuarterState implements State {
     }
 }
 
-@Immutable
+@Canonical
 class NoQuarterState implements State {
     def GumballMachine gumballMachine
 
@@ -169,7 +170,7 @@ class NoQuarterState implements State {
     }
 }
 
-@Immutable
+@Canonical
 class SoldState implements State {
     def GumballMachine gumballMachine
 
@@ -201,7 +202,7 @@ class SoldState implements State {
     }
 }
 
-@Immutable
+@Canonical
 class WinnerState implements State {
     def GumballMachine gumballMachine
 

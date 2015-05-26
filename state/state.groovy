@@ -1,4 +1,4 @@
-import jdk.nashorn.internal.ir.annotations.Immutable
+import groovy.transform.Immutable
 
 interface State {
     def insertQuarter()
@@ -46,11 +46,11 @@ class GumballMachine {
     def count = 0
 
     GumballMachine(int numberGumballs) {
-        this.soldOutState = new SoldOutState()
-        this.hasQuarterState = new HasQuarterState()
-        this.noQuarterState = new NoQuarterState()
-        this.soldState = new SoldState()
-        this.winnerState = new WinnerState()
+        this.soldOutState = new SoldOutState(this)
+        this.hasQuarterState = new HasQuarterState(this)
+        this.noQuarterState = new NoQuarterState(this)
+        this.soldState = new SoldState(this)
+        this.winnerState = new WinnerState(this)
 
         this.count = numberGumballs
 
@@ -112,7 +112,7 @@ class SoldOutState implements State {
 
 @Immutable
 class HasQuarterState implements State {
-    Random random = new Random(System.currentTimeMillis())
+    def Random random = new Random(System.currentTimeMillis())
     def GumballMachine gumballMachine
 
     @Override

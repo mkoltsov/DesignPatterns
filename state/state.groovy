@@ -238,3 +238,17 @@ class WinnerState implements State {
     }
 }
 
+def gumballMachine = new GumballMachine(5)
+
+println(gumballMachine)
+
+gumballMachine.insertQuarter()
+gumballMachine.turnCrank()
+
+println(gumballMachine)
+
+gumballMachine.insertQuarter()
+gumballMachine.turnCrank()
+gumballMachine.insertQuarter()
+gumballMachine.turnCrank()
+println(gumballMachine)

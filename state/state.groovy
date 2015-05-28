@@ -39,6 +39,7 @@ class GumballMachine {
     State noQuarterState
     State hasQuarterState
     State soldState
+    State winnerState
 
     def state = soldOutState
 
@@ -49,6 +50,8 @@ class GumballMachine {
         this.hasQuarterState = new HasQuarterState()
         this.noQuarterState = new NoQuarterState()
         this.soldState = new SoldState()
+        this.winnerState = new WinnerState()
+
         this.count = numberGumballs
 
         if (numberGumballs > 0) {
@@ -109,6 +112,7 @@ class SoldOutState implements State {
 
 @Immutable
 class HasQuarterState implements State {
+    Random random = new Random(System.currentTimeMillis())
     def GumballMachine gumballMachine
 
     @Override
@@ -125,7 +129,12 @@ class HasQuarterState implements State {
     @Override
     def turnCrank() {
         println("You turned...")
-        gumballMachine.setState(gumballMachine.getSoldState())
+        int winner = random.nextInt(10)
+        if (winner == 0 && gumballMachine.count > 1) {
+            gumballMachine.setState(gumballMachine.winnerState)
+        } else {
+            gumballMachine.setState(gumballMachine.getSoldState())
+        }
     }
 
     @Override
@@ -188,6 +197,43 @@ class SoldState implements State {
         } else {
             println("out of gumballs")
             gumballMachine.setState(gumballMachine.getSoldOutState())
+        }
+    }
+}
+
+@Immutable
+class WinnerState implements State {
+    def GumballMachine gumballMachine
+
+    @Override
+    def insertQuarter() {
+        println("no need for a quarter")
+    }
+
+    @Override
+    def ejectQuarter() {
+        println("can't eject")
+    }
+
+    @Override
+    def turnCrank() {
+        println("will do nothing")
+    }
+
+    @Override
+    def dispense() {
+        println("You're a winner!")
+        gumballMachine.releaseBall()
+        if (gumballMachine.count == 0) {
+            gumballMachine.setState(gumballMachine.getSoldOutState())
+        } else {
+            gumballMachine.releaseBall()
+            if (gumballMachine.count > 0) {
+                gumballMachine.setState(gumballMachine.getNoQuarterState())
+            } else {
+                println("out of gumballs")
+                gumballMachine.setState(gumballMachine.getSoldOutState())
+            }
         }
     }
 }

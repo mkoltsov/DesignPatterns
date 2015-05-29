@@ -82,26 +82,28 @@ class GumballMachine {
     }
 }
 
+@Immutable
 class SoldOutState implements State {
+    def GumballMachine gumballMachine
 
     @Override
     def insertQuarter() {
-        return null
+        gumballMachine.setState(gumballMachine.getHasQuarterState())
     }
 
     @Override
     def ejectQuarter() {
-        return null
+        gumballMachine.setState(gumballMachine.noQuarterState)
     }
 
     @Override
     def turnCrank() {
-        return null
+        println("Sorry, no gumballs for you")
     }
 
     @Override
     def dispense() {
-        return null
+        println("Nothing to dispense")
     }
 }
 
@@ -131,6 +133,7 @@ class HasQuarterState implements State {
         println("No quarter dispensed")
     }
 }
+
 @Immutable
 class NoQuarterState implements State {
     def GumballMachine gumballMachine
@@ -159,7 +162,8 @@ class NoQuarterState implements State {
 
 @Immutable
 class SoldState implements State {
-   def GumballMachine gumballMachine
+    def GumballMachine gumballMachine
+
     @Override
     def insertQuarter() {
         println("please wait we've already given you a gumball")
@@ -179,7 +183,7 @@ class SoldState implements State {
     def dispense() {
         gumballMachine.releaseBall()
 
-        if (gumballMachine.count> 0) {
+        if (gumballMachine.count > 0) {
             gumballMachine.setState(gumballMachine.getNoQuarterState())
         } else {
             println("out of gumballs")

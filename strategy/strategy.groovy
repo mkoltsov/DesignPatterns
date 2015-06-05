@@ -8,13 +8,13 @@ interface QuackBehaviour {
 
 class MegaDuck implements FlyBehavior {
 	def fly(){
-		println("Flying saucepan")       	
+		println("Flying saucepan")
 	}
 }
 
 class GigaDuck implements QuackBehaviour {
 	def quack(){
-		println("Quack")       	
+		println("Quack")
 	}
 }
 

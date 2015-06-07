@@ -1,9 +1,25 @@
-class Publisher{
-	def subscribers = []
-	def publish() {
-		subscribers.each(_-> _.publish)
+interface Subject {
+	def notifyObservers() {
 	}
+
+	def addObserver(Observer sub){
+	}
+
+	def deleteObserver(Observer sub){
+	}
+
+	def setState(Object state){
+
+	}
+
+	def getState(Object state){
+
+	}
+
 }
-class Subscriber{
-	def publish(){}
+
+interface Observer {
+	def publish(Object state){
+
+	}
 }

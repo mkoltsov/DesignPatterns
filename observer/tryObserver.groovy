@@ -1,0 +1,5 @@
+def data = new WeatherData()
+data.addObserver(new WeatherStation())
+data.addObserver(new PoliceStation())
+data.setState("Started working")
+data.notifyObservers()

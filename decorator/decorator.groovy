@@ -55,7 +55,6 @@ println("${beverage.getDescription()} + ${beverage.cost()}")
 
 Beverage beverage1 = new HouseBlend()
 
-beverage1 = new Mocha(beverage1)
-beverage1 = new Mocha(beverage1)
+beverage1 = new Mocha(new Mocha(beverage1))
 
 println("${beverage1.getDescription()} + ${beverage1.cost()}")

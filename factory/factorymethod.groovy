@@ -1,3 +1,4 @@
+//NOT TESTED
 abstract class SecurityFactory{
 	def getException(){
 		Exc ex = getActualException()

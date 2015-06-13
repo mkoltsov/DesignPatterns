@@ -1,3 +1,4 @@
+//NOT TESTED
 abstract class Pizza {
 	def dough
 	def cheese

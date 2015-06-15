@@ -1,8 +1,8 @@
 interface Command {
-	def void execute(){}
+	def void execute()
 }
 
-class LightSwitcher implemants Command {
+class LightSwitcher implements Command {
 	def private void switchLightOn(){
 		println("Switching the light on")
 	}
@@ -18,18 +18,49 @@ class LightSwitcher implemants Command {
 
 }
 
-class ACSwitcher implemants Command {
+class ACSwitcher implements Command {
 	def private void switchAcOn(){
-		println("Switching the light on")
+		println("Switching AC on")
 	}
     
     def private void switchACOff(){
-		println("Switching the light off")
+		println("Switching AC off")
 	}
 
 	def void execute(){
          switchAcOn()
-         switchAcOn()
+         switchACOff()
 	}
 
 }
+
+class PartyMixer implements Command {
+	def commands
+	PartyMixer(commands){
+	  this.commands = commands
+	}
+	
+	def void execute(){
+		commands.each{
+			_ -> _.execute()
+		}
+	}
+}
+
+class Remote {
+	def command
+	def setCommand(Command command) {
+		this.command = command
+		return this
+	}
+	
+	def pushTheButton(){
+       command?.execute()	
+	}
+}
+def remote = new Remote()
+remote.setCommand(new ACSwitcher()).pushTheButton()
+remote.setCommand(new LightSwitcher()).pushTheButton()
+println('-------')
+remote.setCommand(new PartyMixer([new ACSwitcher(), new LightSwitcher()])).pushTheButton()
+

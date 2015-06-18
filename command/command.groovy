@@ -13,7 +13,23 @@ class LightSwitcher implemants Command {
 
 	def void execute(){
          switchLightOn()
-         switchLightOff
+         switchLightOff()
+	}
+
+}
+
+class ACSwitcher implemants Command {
+	def private void switchAcOn(){
+		println("Switching the light on")
+	}
+    
+    def private void switchACOff(){
+		println("Switching the light off")
+	}
+
+	def void execute(){
+         switchAcOn()
+         switchAcOn()
 	}
 
 }

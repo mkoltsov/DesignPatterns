@@ -6,14 +6,14 @@ class LightSwitcher implements Command {
 	def private void switchLightOn(){
 		println("Switching the light on")
 	}
-    
-    def private void switchLightOff(){
+	
+	def private void switchLightOff(){
 		println("Switching the light off")
 	}
 
 	def void execute(){
-         switchLightOn()
-         switchLightOff()
+		switchLightOn()
+		switchLightOff()
 	}
 
 }
@@ -22,14 +22,14 @@ class ACSwitcher implements Command {
 	def private void switchAcOn(){
 		println("Switching AC on")
 	}
-    
-    def private void switchACOff(){
+	
+	def private void switchACOff(){
 		println("Switching AC off")
 	}
 
 	def void execute(){
-         switchAcOn()
-         switchACOff()
+		switchAcOn()
+		switchACOff()
 	}
 
 }
@@ -37,7 +37,7 @@ class ACSwitcher implements Command {
 class PartyMixer implements Command {
 	def commands
 	PartyMixer(commands){
-	  this.commands = commands
+		this.commands = commands
 	}
 	
 	def void execute(){
@@ -55,7 +55,7 @@ class Remote {
 	}
 	
 	def pushTheButton(){
-       command?.execute()	
+		command?.execute()	
 	}
 }
 def remote = new Remote()

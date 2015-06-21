@@ -7,7 +7,7 @@ class HomeTheaterFacade {
 		this.tv = tv
 	}
 	
-	def watchMovie(){
+	def watchMovie() {
 		amp.turnOn()
 		popper.pop()
 		dvd.turnOn()
@@ -16,7 +16,7 @@ class HomeTheaterFacade {
 		dvd.playTheMovie()
 	}
 	
-	def switchOffMovie(){
+	def switchOffMovie() {
 		amp.turnOff()
 		popper.turnOff()
 		dvd.turnOff()

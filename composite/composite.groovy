@@ -47,3 +47,57 @@ class MenuItem extends MenuComponent {
     }
 }
 
+@Immutable
+class Menu extends MenuComponent {
+    def menuComponents = []
+    def String name
+    def String description
+
+    @Override
+    void add(MenuComponent component) {
+        menuComponents.add(component)
+    }
+
+    @Override
+    void remove(MenuComponent component) {
+        menuComponents.remove(component)
+    }
+
+    @Override
+    MenuComponent getChild(int i) {
+        return menuComponents[i] as MenuComponent
+    }
+
+    @Override
+    void print() {
+        println("${name} - ${description}")
+
+        menuComponents.each {_ -> ( _ as MenuComponent).print()}
+    }
+}
+
+@Immutable
+class Waitress {
+    def MenuComponent allMenus
+
+    def void printMenu(){
+        allMenus.print()
+    }
+}
+
+def pancakeMenu = new Menu(menuComponents: [], name: "Pancake house menu", description: "breakfast")
+def dinerMenu = new Menu(menuComponents: [], name: "Diner menu", description: "lunch")
+def cafeMenu = new Menu(menuComponents: [], name: "Cafe menu", description: "diner")
+def dessertMenu = new Menu(menuComponents: [], name: "Dessert menu", description: "dessert of course")
+
+def allMenus = new Menu(menuComponents: [], name: "All menus", description: "all menus combined")
+allMenus.add(pancakeMenu)
+allMenus.add(dinerMenu)
+allMenus.add(cafeMenu)
+
+dinerMenu.add(new MenuItem(name: "Pasta", description: "Spaghetti with sauce", vegeterian: true, price: 100.00))
+dinerMenu.add(dessertMenu)
+
+dessertMenu.add(new MenuItem(name: "Apple Pie", description: "pie", vegeterian: true, price: 3.00))
+
+new Waitress(allMenus).printMenu()

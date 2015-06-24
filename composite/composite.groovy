@@ -1,4 +1,5 @@
 import groovy.transform.Immutable
+import groovy.transform.Canonical
 
 abstract class MenuComponent {
     def void add(MenuComponent component) {
@@ -47,7 +48,7 @@ class MenuItem extends MenuComponent {
     }
 }
 
-@Immutable
+@Canonical
 class Menu extends MenuComponent {
     def menuComponents = []
     def String name
@@ -76,7 +77,7 @@ class Menu extends MenuComponent {
     }
 }
 
-@Immutable
+@Canonical
 class Waitress {
     def MenuComponent allMenus
 

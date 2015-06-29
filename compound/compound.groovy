@@ -182,7 +182,4 @@ class Goose {
 	}
 }
 
-
-
-
 simulate(new CountingDuckFactory())

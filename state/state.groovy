@@ -1,4 +1,5 @@
 import groovy.transform.Canonical
+
 interface State {
     def insertQuarter()
 
@@ -9,13 +10,15 @@ interface State {
     def dispense()
 
 }
+
 @Canonical
 class NoQuarter implements State {
     def GumballMachine gumballMachine
+
     @Override
     def insertQuarter() {
         println("You inserted a quarter")
-  gumballMachine.setState(gumballMachine.HasQuarterState())
+        gumballMachine.setState(gumballMachine.HasQuarterState())
     }
 
     @Override
@@ -47,8 +50,8 @@ class GumballMachine {
 
     GumballMachine(int numberGumballs) {
         this.soldOutState = new SoldOutState(this)
-        this.hasQuarterState = new HasQuarterState(random:new Random(System.currentTimeMillis()),
-  gumballMachine:this)
+        this.hasQuarterState = new HasQuarterState(random: new Random(System.currentTimeMillis()),
+                gumballMachine: this)
         this.noQuarterState = new NoQuarterState(this)
         this.soldState = new SoldState(this)
         this.winnerState = new WinnerState(this)

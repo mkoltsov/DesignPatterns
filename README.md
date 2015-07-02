@@ -1,7 +1,7 @@
 # DesignPatterns
 It's a repo to practice writing various software design patterns
 
-#1. Creational patterns 
+# 1. Creational patterns 
  	 * ##Singleton
 	 ## Builder 
 	 ## Prototype

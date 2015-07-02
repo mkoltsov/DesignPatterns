@@ -2,11 +2,11 @@
 It's a repo to practice writing various software design patterns
 
 #1. Creational patterns 
- *##	* Singleton
-	* ## Builder 
-	* ## Prototype
-	* ## Abstract Factory
-	* ## Factory Method
+ 	 ## Singleton
+	 ## Builder 
+	 ## Prototype
+	 ## Abstract Factory
+	 ## Factory Method
 
 #2. Behavioral patterns
 	* ## Template method

@@ -21,7 +21,7 @@ It's a repo to practice writing various software design patterns
 ###	- State
 ###	- Strategy
 
-#### 3. Structural patterns 
+## 3. Structural patterns 
 ###	- Decorator
 ###	- Composite
 ###	- Proxy

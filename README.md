@@ -2,7 +2,7 @@
 It's a repo to practice writing various software design patterns
 
 #1. Creational patterns 
- 	 ##Singleton
+ 	 *##Singleton
 	 ## Builder 
 	 ## Prototype
 	 ## Abstract Factory

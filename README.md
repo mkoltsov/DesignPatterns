@@ -2,11 +2,11 @@
 It's a repo to practice writing various software design patterns
 
 ## 1. Creational patterns 
-###  - Singleton - Ensures one and only one object is created.
-###	 - Builder 
-###	 - Prototype
-###	 - Abstract Factory - Allows a client to create families of objects without specifying their concrete classes.
-###	 - Factory Method - Subclasses decide which concrete classes to create.
+### - Singleton - Ensures one and only one object is created.
+###	- Builder 
+###	- Prototype
+###	- Abstract Factory - Allows a client to create families of objects without specifying their concrete classes.
+###	- Factory Method - Subclasses decide which concrete classes to create.
 
 ## 2. Behavioral patterns
 ###	- Template method - Subclasses decide which concrete classes to create.
@@ -29,3 +29,30 @@ It's a repo to practice writing various software design patterns
 ###	- Bridge
 ###	- Flyweight
 ###	- Adapter - Wraps an object and provides a different interface to it.
+---------------------------
+## 4. Class patterns
+###	- Template method
+###	- Adapter
+###	- Factory Method
+###	- Interpreter
+
+## 5. Object patterns
+###	- Composite
+###	- Visitor
+###	- Decorator
+###	- Iterator
+###	- Command
+###	- Memento
+###	- Proxy
+###	- Facade
+###	- Observer
+###	- Strategy
+###	- Chain of responsibility
+###	- Bridge
+###	- Mediator
+###	- Flyweight
+###	- Prototype
+###	- State
+###	- Abstract Factory
+###	- Builder
+###	- Singleton

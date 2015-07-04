@@ -26,7 +26,7 @@ It's a repo to practice writing various software design patterns
 ###	- Composite - Clients treat collections of objects and individual objects uniformly.
 ###	- Proxy - Wraps an object to control access to it.
 ###	- Facade - Simplifies the interface of a set of classes.
-###	- Bridge
+###	- Bridge - 	The Bridge Pattern allows you to vary the implementation and the abstraction by placing the two in separate class hierarchies.
 ###	- Flyweight
 ###	- Adapter - Wraps an object and provides a different interface to it.
 ---------------------------

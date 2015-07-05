@@ -36,10 +36,10 @@ class Car implements CarElement {
 
 	Car(){
 		this.elements = [new Wheel(name: "front left"),
-		 new Wheel(name:"front right"),
-		 new Wheel(name:"back right"),
-		 new Wheel(name:"back left"),
-		 new Body(), new Engine()]
+		new Wheel(name:"front right"),
+		new Wheel(name:"back right"),
+		new Wheel(name:"back left"),
+		new Body(), new Engine()]
 	}
 
 	def void accept(CarElementVisitor visitor) {
@@ -55,15 +55,15 @@ class CarElementPrintVisitor implements CarElementVisitor {
 		println("Visiting ${wheel.name} wheel")
 	}
 
-		def void visit(Engine engine) {
+	def void visit(Engine engine) {
 		println("Visiting engine")
 	}
 
-		def void visit(Body body) {
+	def void visit(Body body) {
 		println("Visiting body")
 	}
 
-		def void visit(Car car) {
+	def void visit(Car car) {
 		println("Visiting car")
 	}
 }
@@ -73,15 +73,15 @@ class CarElementDoVisitor implements CarElementVisitor {
 		println("Kicking ${wheel.name} wheel")
 	}
 
-		def void visit(Engine engine) {
+	def void visit(Engine engine) {
 		println("Starting my engine")
 	}
 
-		def void visit(Body body) {
+	def void visit(Body body) {
 		println("Moving my body")
 	}
 
-		def void visit(Car car) {
+	def void visit(Car car) {
 		println("Starting my car")
 	}
 }

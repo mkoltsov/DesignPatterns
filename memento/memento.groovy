@@ -15,7 +15,7 @@ class Originator {
 	}
 
 	def void restoreFromMemento(Memento memento) {
-		this.state = memento.getState()
+		this.state = memento.state
 		println("Originator: State after restoring from Memento - ${this.state}")
 	}
 	@Canonical
@@ -35,5 +35,5 @@ originator.set("State3")
 savedStates.add(originator.saveToMemento())
 originator.set("State4")
 
-originator.restoreFromMemento(savedStates[1])
+originator.restoreFromMemento(savedStates[0])
 

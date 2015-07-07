@@ -51,7 +51,7 @@ class Evaluator implements Expression {
 
 		expression.split(" ").each { _ ->
 			if (_ == "+") {
-				def Expression subExpression = new Plus(expressionStack.pop, expressionStack.pop)
+				def Expression subExpression = new Plus(expressionStack.pop(), expressionStack.pop())
 				expressionStack.push(subExpression)
 			} else if (_ == "-") {
 				def Expression right = expressionStack.pop()
